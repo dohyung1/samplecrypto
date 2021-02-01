@@ -5,7 +5,7 @@
 //  Created by Administrator on 1/31/21.
 //
 
-import RAMAnimatedTabBarController
+import FirebaseAuth
 import ShimmerSwift
 import UIKit
 
@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         //Content View
         let button = UIButton(frame: shimmerView.bounds)
         button.backgroundColor = .systemBlue
-        button.setTitle("Unlock", for: .normal)
+        button.setTitle("Welcome. Sign out?", for: .normal)
         button.layer.cornerRadius = 12
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         shimmerView.contentView = button
@@ -31,58 +31,35 @@ class HomeViewController: UIViewController {
         shimmerView.shimmerDirection = .right
         
     }
-
-    @objc func didTapButton(){
-        let tabBarVC = CustomTabBarController()
-        present(tabBarVC, animated: true)
+    
+    @objc private func didTapButton(){
+        do{
+            try Auth.auth().signOut()
+            handleNotAuthenticated()
+        }
+        catch let signoutError as NSError{
+            print(signoutError)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        handleNotAuthenticated()
+    }
+    
+    private func handleNotAuthenticated(){
+        //Check Auth Status
+        if Auth.auth().currentUser == nil{
+            //Show log in
+            guard let onboardVC = storyboard?.instantiateViewController(identifier: "onboard") as? OnboardViewController else{
+                print("failed to get onboard from storyboard")
+                return
+            }
+            onboardVC.modalPresentationStyle = .fullScreen
+            present(onboardVC, animated: true)
+        }
+        
     }
 
 }
-
-class CustomTabBarController : RAMAnimatedTabBarController{
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-    }
-    
-    private func configure(){
-        let vc1 = UIViewController()
-        let vc2 = UIViewController()
-        let vc3 = UIViewController()
-        let vc4 = UIViewController()
-        
-        vc1.view.backgroundColor = .systemGreen
-        vc2.view.backgroundColor = .systemBlue
-        vc3.view.backgroundColor = .systemOrange
-        vc4.view.backgroundColor = .systemPink
-        
-        vc1.tabBarItem = RAMAnimatedTabBarItem(title: "",
-                                               image: UIImage(systemName: "house"),
-                                               tag : 1)
-        
-        (vc1.tabBarItem as? RAMAnimatedTabBarItem)?.animation = RAMBounceAnimation()
-        
-        vc2.tabBarItem = RAMAnimatedTabBarItem(title: "",
-                                               image: UIImage(systemName: "bitcoinsign.circle"),
-                                               tag : 1)
-        
-        (vc2.tabBarItem as? RAMAnimatedTabBarItem)?.animation = RAMBounceAnimation()
-        
-        vc3.tabBarItem = RAMAnimatedTabBarItem(title: "",
-                                               image: UIImage(systemName: "bell"),
-                                               tag : 1)
-        
-        (vc3.tabBarItem as? RAMAnimatedTabBarItem)?.animation = RAMBounceAnimation()
-        
-        vc4.tabBarItem = RAMAnimatedTabBarItem(title: "",
-                                               image: UIImage(systemName: "gear"),
-                                               tag : 1)
-        
-        (vc4.tabBarItem as? RAMAnimatedTabBarItem)?.animation = RAMBounceAnimation()
-        
-        
-        setViewControllers([vc1,vc2,vc3,vc4], animated: false)
-    }
-}
-

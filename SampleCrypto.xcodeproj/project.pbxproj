@@ -21,6 +21,10 @@
 		C3FF240D25C76E1C00FAD741 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF240C25C76E1C00FAD741 /* EditProfileViewController.swift */; };
 		C3FF241025C76E3500FAD741 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF240F25C76E3500FAD741 /* SettingsViewController.swift */; };
 		C3FF241325C76E5000FAD741 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF241225C76E5000FAD741 /* ListViewController.swift */; };
+		C3FF242F25C7855100FAD741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3FF242E25C7855100FAD741 /* GoogleService-Info.plist */; };
+		C3FF245F25C790F400FAD741 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF245E25C790F400FAD741 /* OnboardViewController.swift */; };
+		C3FF248325C7A0F100FAD741 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF248225C7A0F100FAD741 /* Utilities.swift */; };
+		C3FF24B125C7C97500FAD741 /* bitcoin.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C3FF24B025C7C97200FAD741 /* bitcoin.mp4 */; };
 		DECC169386448ADBA166E97B /* Pods_SampleCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87CC1CF98C97801DCE4EFA6D /* Pods_SampleCrypto.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,10 @@
 		C3FF240C25C76E1C00FAD741 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		C3FF240F25C76E3500FAD741 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C3FF241225C76E5000FAD741 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		C3FF242E25C7855100FAD741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C3FF245E25C790F400FAD741 /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
+		C3FF248225C7A0F100FAD741 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C3FF24B025C7C97200FAD741 /* bitcoin.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bitcoin.mp4; sourceTree = "<group>"; };
 		D7BA9ECBDDCFDA887E223ECE /* Pods-SampleCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleCrypto.release.xcconfig"; path = "Target Support Files/Pods-SampleCrypto/Pods-SampleCrypto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +104,7 @@
 		C3FF23D125C75BD600FAD741 /* SampleCrypto */ = {
 			isa = PBXGroup;
 			children = (
+				C3FF248125C7A0DC00FAD741 /* Helpers */,
 				C3FF23F625C76B4600FAD741 /* Resources */,
 				C3FF23F525C76B4200FAD741 /* Models */,
 				C3FF23F325C76B3800FAD741 /* Views */,
@@ -133,6 +142,8 @@
 		C3FF23F625C76B4600FAD741 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3FF24B325C7C9F500FAD741 /* Media */,
+				C3FF242E25C7855100FAD741 /* GoogleService-Info.plist */,
 				C3FF23D225C75BD600FAD741 /* AppDelegate.swift */,
 				C3FF23D425C75BD600FAD741 /* SceneDelegate.swift */,
 			);
@@ -162,10 +173,8 @@
 		C3FF240425C76DC700FAD741 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				C3FF243225C78D1D00FAD741 /* General */,
 				C3FF240525C76DD000FAD741 /* Onboarding */,
-				C3FF240C25C76E1C00FAD741 /* EditProfileViewController.swift */,
-				C3FF240F25C76E3500FAD741 /* SettingsViewController.swift */,
-				C3FF241225C76E5000FAD741 /* ListViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -175,8 +184,35 @@
 			children = (
 				C3FF240625C76DE600FAD741 /* LoginViewController.swift */,
 				C3FF240925C76DF700FAD741 /* RegistrationViewController.swift */,
+				C3FF245E25C790F400FAD741 /* OnboardViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C3FF243225C78D1D00FAD741 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				C3FF240C25C76E1C00FAD741 /* EditProfileViewController.swift */,
+				C3FF240F25C76E3500FAD741 /* SettingsViewController.swift */,
+				C3FF241225C76E5000FAD741 /* ListViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		C3FF248125C7A0DC00FAD741 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C3FF248225C7A0F100FAD741 /* Utilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C3FF24B325C7C9F500FAD741 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				C3FF24B025C7C97200FAD741 /* bitcoin.mp4 */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +227,7 @@
 				C3FF23CC25C75BD600FAD741 /* Frameworks */,
 				C3FF23CD25C75BD600FAD741 /* Resources */,
 				00E5B593B7F524EEA04D7BC8 /* [CP] Embed Pods Frameworks */,
+				58A3F7A3FC452B381B9D6972 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,9 +275,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3FF24B125C7C97500FAD741 /* bitcoin.mp4 in Resources */,
 				C3FF23DF25C75BDD00FAD741 /* LaunchScreen.storyboard in Resources */,
 				C3FF23DC25C75BDD00FAD741 /* Assets.xcassets in Resources */,
 				C3FF23DA25C75BD600FAD741 /* Main.storyboard in Resources */,
+				C3FF242F25C7855100FAD741 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +325,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		58A3F7A3FC452B381B9D6972 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SampleCrypto/Pods-SampleCrypto-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SampleCrypto/Pods-SampleCrypto-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SampleCrypto/Pods-SampleCrypto-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -295,7 +351,9 @@
 			files = (
 				C3FF240725C76DE600FAD741 /* LoginViewController.swift in Sources */,
 				C3FF240025C76D8600FAD741 /* ProfileViewController.swift in Sources */,
+				C3FF245F25C790F400FAD741 /* OnboardViewController.swift in Sources */,
 				C3FF240A25C76DF700FAD741 /* RegistrationViewController.swift in Sources */,
+				C3FF248325C7A0F100FAD741 /* Utilities.swift in Sources */,
 				C3FF241025C76E3500FAD741 /* SettingsViewController.swift in Sources */,
 				C3FF23FD25C76D7700FAD741 /* NotificationsViewController.swift in Sources */,
 				C3FF241325C76E5000FAD741 /* ListViewController.swift in Sources */,
