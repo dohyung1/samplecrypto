@@ -1,0 +1,20 @@
+PODS:
+  - RAMAnimatedTabBarController (5.2.0)
+  - ShimmerSwift (2.1.1)
+
+DEPENDENCIES:
+  - RAMAnimatedTabBarController
+  - ShimmerSwift
+
+SPEC REPOS:
+  trunk:
+    - RAMAnimatedTabBarController
+    - ShimmerSwift
+
+SPEC CHECKSUMS:
+  RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  ShimmerSwift: f7ed2daf9c246de8299dfd9e12c6ab465cba9842
+
+PODFILE CHECKSUM: f2792bc9a20ab28fc80fc8d4ebdf4c34565bb09a
+
+COCOAPODS: 1.10.0

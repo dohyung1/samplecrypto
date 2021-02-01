@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tOv-WX-18K">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Animated Tab Bar Controller-->
+        <scene sceneID="BZo-8R-0TP">
+            <objects>
+                <tabBarController id="tOv-WX-18K" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Khb-2c-Asz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" name="AccentColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="RMI-dl-kJg" kind="relationship" relationship="viewControllers" id="jPm-FU-4K4"/>
+                        <segue destination="duk-yB-gdX" kind="relationship" relationship="viewControllers" id="m4C-pg-hbV"/>
+                        <segue destination="iAl-me-gQf" kind="relationship" relationship="viewControllers" id="m0U-dt-5Fj"/>
+                        <segue destination="Vlx-bf-BBQ" kind="relationship" relationship="viewControllers" id="oxi-ey-E3d"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6Q-q1-yNa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1067" y="361"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PQ9-Rf-1jV">
+            <objects>
+                <navigationController id="RMI-dl-kJg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="7T1-VU-L8L" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <imageReference key="image" image="house" catalog="system" symbolScale="large"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" systemColor="systemRedColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="Kbr-cU-kkw" id="AUu-fS-Rxi"/>
+                        </connections>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zPH-dh-Qfb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lJv-fy-pdD" kind="relationship" relationship="rootViewController" id="zWr-t9-m7f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sz2-SH-gUQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Kbr-cU-kkw" customClass="RAMRightRotationAnimation" customModule="RAMAnimatedTabBarController"/>
+            </objects>
+            <point key="canvasLocation" x="-2417" y="1126"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BhP-WX-9qf">
+            <objects>
+                <navigationController id="duk-yB-gdX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="LGv-pC-dam" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <imageReference key="image" image="bitcoinsign.circle" catalog="system" symbolScale="large"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.93594115972518921" green="0.80742669105529785" blue="0.14667296409606934" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="3n9-sm-bH1" id="Qq5-sA-dQE"/>
+                        </connections>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jdU-ei-hlx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zL5-tb-DmI" kind="relationship" relationship="rootViewController" id="cwh-tB-gsa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdV-KE-MsO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="3n9-sm-bH1" customClass="RAMLeftRotationAnimation" customModule="RAMAnimatedTabBarController"/>
+            </objects>
+            <point key="canvasLocation" x="-1580" y="1126"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="v4Q-l5-iOn">
+            <objects>
+                <navigationController id="iAl-me-gQf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="oW7-CI-MHB" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <imageReference key="image" image="bell" catalog="system" symbolScale="large"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" systemColor="systemGreenColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="uj9-CS-Yt0" id="5kh-5R-A9l"/>
+                        </connections>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZGp-54-XcW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WIO-Ov-8TW" kind="relationship" relationship="rootViewController" id="XH5-7F-FTi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cXT-Zy-EMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="uj9-CS-Yt0" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
+            </objects>
+            <point key="canvasLocation" x="-716" y="1126"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OL6-9V-OV1">
+            <objects>
+                <navigationController id="Vlx-bf-BBQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="GHu-sH-ja0" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <imageReference key="image" image="person" catalog="system" symbolScale="large"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" systemColor="systemIndigoColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="zvR-Hn-IJK" id="YYB-zh-jqJ"/>
+                        </connections>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bSo-4P-utb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gOn-oE-OnL" kind="relationship" relationship="rootViewController" id="yQS-DL-7zw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E4L-RW-cxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="zvR-Hn-IJK" customClass="RAMFumeAnimation" customModule="RAMAnimatedTabBarController"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="1126"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="jpr-q4-aNG">
+            <objects>
+                <viewController id="lJv-fy-pdD" customClass="HomeViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WXY-eg-siV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Z6g-Ww-VNS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EwJ-NO-Uux"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mfv-GN-jhe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2417" y="1871"/>
+        </scene>
+        <!--Explore View Controller-->
+        <scene sceneID="p24-vl-Hmo">
+            <objects>
+                <viewController id="zL5-tb-DmI" customClass="ExploreViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J6b-B0-xF5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uLj-lH-uv0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="370-4z-uxb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yUO-EF-Z4F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1581" y="1871"/>
+        </scene>
+        <!--Notifications View Controller-->
+        <scene sceneID="S95-Yx-7Jc">
+            <objects>
+                <viewController id="WIO-Ov-8TW" customClass="NotificationsViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gJ4-4A-IQo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YKv-gF-cyW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NGo-bC-bZH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XT4-Tu-pwP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-717" y="1871"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="WFV-O0-vaK">
+            <objects>
+                <viewController id="gOn-oE-OnL" customClass="ProfileViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nrl-hf-fcC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="AH4-6m-C2H"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zUT-8u-1WU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Pb-g4-QCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="1871"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bell" catalog="system" width="128" height="124"/>
+        <image name="bitcoinsign.circle" catalog="system" width="128" height="121"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
