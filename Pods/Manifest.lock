@@ -390,6 +390,7 @@ PODS:
 
 DEPENDENCIES:
   - Appirater
+  - FBSDKLoginKit
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
@@ -467,6 +468,6 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   ShimmerSwift: f7ed2daf9c246de8299dfd9e12c6ab465cba9842
 
-PODFILE CHECKSUM: 9a1409a1c8289c4c62cfd21e13f396ea8ff9e9c8
+PODFILE CHECKSUM: b928e34bcb306a1c50a2e1afe9e6f6fdf923d91e
 
 COCOAPODS: 1.10.0

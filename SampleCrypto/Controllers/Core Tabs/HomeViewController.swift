@@ -13,6 +13,11 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "paperplane"),
+                                                            style: .done,
+                                                            target: self,
+                                                            action: #selector(didTapDM))
+        
 
         let shimmerView = ShimmeringView(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
         view.addSubview(shimmerView)
@@ -32,6 +37,16 @@ class HomeViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        handleNotAuthenticated()
+    }
+    
+    @objc private func didTapDM(){
+        
+    }
+    
     @objc private func didTapButton(){
         do{
             try Auth.auth().signOut()
@@ -42,24 +57,20 @@ class HomeViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        handleNotAuthenticated()
-    }
-    
     private func handleNotAuthenticated(){
         //Check Auth Status
         if Auth.auth().currentUser == nil{
-            //Show log in
+            //Show Onboarding if first time
             guard let onboardVC = storyboard?.instantiateViewController(identifier: "onboard") as? OnboardViewController else{
                 print("failed to get onboard from storyboard")
                 return
             }
-            onboardVC.modalPresentationStyle = .fullScreen
-            present(onboardVC, animated: true)
+            let nav = UINavigationController(rootViewController: onboardVC)
+            nav.modalPresentationStyle = .fullScreen
+            nav.modalTransitionStyle = .crossDissolve
+            present(nav, animated: true)
+            
+            //TODO: Show login if not first time
         }
-        
     }
-
 }

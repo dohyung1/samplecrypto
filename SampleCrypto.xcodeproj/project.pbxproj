@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3424A2C25C918CD00D57663 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3424A2B25C918CD00D57663 /* DatabaseManager.swift */; };
+		C3424A2F25C929C000D57663 /* DMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3424A2E25C929C000D57663 /* DMViewController.swift */; };
 		C3FF23D325C75BD600FAD741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF23D225C75BD600FAD741 /* AppDelegate.swift */; };
 		C3FF23D525C75BD600FAD741 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF23D425C75BD600FAD741 /* SceneDelegate.swift */; };
 		C3FF23D725C75BD600FAD741 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FF23D625C75BD600FAD741 /* HomeViewController.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		0F7FB58A5A730BC59F8B23A8 /* Pods-SampleCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleCrypto.debug.xcconfig"; path = "Target Support Files/Pods-SampleCrypto/Pods-SampleCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 		87CC1CF98C97801DCE4EFA6D /* Pods_SampleCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3424A2B25C918CD00D57663 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		C3424A2E25C929C000D57663 /* DMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMViewController.swift; sourceTree = "<group>"; };
 		C3FF23CF25C75BD600FAD741 /* SampleCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FF23D225C75BD600FAD741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3FF23D425C75BD600FAD741 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				C3FF242E25C7855100FAD741 /* GoogleService-Info.plist */,
 				C3FF23D225C75BD600FAD741 /* AppDelegate.swift */,
 				C3FF23D425C75BD600FAD741 /* SceneDelegate.swift */,
+				C3424A2B25C918CD00D57663 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				C3FF240C25C76E1C00FAD741 /* EditProfileViewController.swift */,
 				C3FF240F25C76E3500FAD741 /* SettingsViewController.swift */,
 				C3FF241225C76E5000FAD741 /* ListViewController.swift */,
+				C3424A2E25C929C000D57663 /* DMViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -354,7 +360,9 @@
 				C3FF245F25C790F400FAD741 /* OnboardViewController.swift in Sources */,
 				C3FF240A25C76DF700FAD741 /* RegistrationViewController.swift in Sources */,
 				C3FF248325C7A0F100FAD741 /* Utilities.swift in Sources */,
+				C3424A2F25C929C000D57663 /* DMViewController.swift in Sources */,
 				C3FF241025C76E3500FAD741 /* SettingsViewController.swift in Sources */,
+				C3424A2C25C918CD00D57663 /* DatabaseManager.swift in Sources */,
 				C3FF23FD25C76D7700FAD741 /* NotificationsViewController.swift in Sources */,
 				C3FF241325C76E5000FAD741 /* ListViewController.swift in Sources */,
 				C3FF23FA25C76D4200FAD741 /* ExploreViewController.swift in Sources */,

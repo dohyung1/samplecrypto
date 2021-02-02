@@ -17,8 +17,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +62,7 @@ class RegistrationViewController: UIViewController {
         errorLabel.text = message
         errorLabel.alpha = 1
     }
-    
+
     @IBAction func signUpTapped(_ sender: Any) {
         
         //Validate the fields
@@ -80,27 +79,30 @@ class RegistrationViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            //Create the user
             
-            Auth.auth().createUser(withEmail: email, password: password) { (results, error) in
-                
-                //Check for errors
-                if error != nil {
-                    self.showError("Error creating user")
+            DatabaseManager.shared.userExists(with: email) { [weak self]exists in
+                guard let strongSelf = self else{
+                    return
                 }
-                else{
-                    //User created successfully, store first name and last name
-                    let db = Firestore.firestore()
-                    db.collection("users").addDocument(data: ["firstname": firstName,
-                                                              "lastname": lastName,
-                                                              "uid": results!.user.uid ]) { (error) in
-                        if error != nil{
-                            self.showError("Error saving user data in db")
-                        }
+                
+                guard !exists else{
+                    strongSelf.showError("User account for this email address already exists.")
+                    return
+                }
+                
+                //Create the user
+                Auth.auth().createUser(withEmail: email, password: password) {results, error in
+                    guard results != nil, error == nil else{
+                        strongSelf.showError("Error creating user.")
+                        return
                     }
-                    //Transition to home screen
-                    self.presentingViewController?.dismiss(animated: true, completion: nil)
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loginSuccess"), object: nil)
+                    
+                    DatabaseManager.shared.insertUser(with: User(firstName: firstName,
+                                                                 lastName: lastName,
+                                                                 emailAddress: email))
+                    
+                    strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loginSuccess") , object: nil)
                     
                 }
             }

@@ -19,5 +19,6 @@ pod 'FirebaseUI/Google'
 pod 'FirebaseUI/Facebook'
 pod 'FirebaseUI/OAuth'
 pod 'FirebaseUI/Phone'
+pod 'FBSDKLoginKit'
 
 end

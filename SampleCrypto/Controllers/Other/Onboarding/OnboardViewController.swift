@@ -12,7 +12,7 @@ import UIKit
 class OnboardViewController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
+
     var videoPlayer:AVQueuePlayer?
     var videoPlayerLayer:AVPlayerLayer?
     var videoLooper:AVPlayerLooper?
@@ -20,29 +20,39 @@ class OnboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(handleModalDismissed),
-                                                   name: NSNotification.Name(rawValue: "loginSuccess"),
-                                                   object: nil)
-
+                                               selector: #selector(handleModalDismissed),
+                                               name: NSNotification.Name(rawValue: "loginSuccess"),
+                                               object: nil)
         setUpElements()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //Setup video in background
         setUpVideo()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @objc private func didTapSignUpButton(){
+        guard let vc = storyboard?.instantiateViewController(identifier: "login") as? LoginViewController else{
+            print("failed to get login from storyboard")
+            return
+        }
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.modalTransitionStyle = .crossDissolve
+        present(nav, animated: true)
     }
     
     @objc private func handleModalDismissed(){
-        if Auth.auth().currentUser != nil{
-            self.dismiss(animated: true, completion: nil)
-        }
+        self.navigationController?.dismiss(animated: true)
     }
 
     
     private func setUpElements(){
-        
         Utilities.styleFilledButton(signUpButton)
-        Utilities.styleHollowButton(loginButton)
+        signUpButton.addTarget(self,
+                               action: #selector(didTapSignUpButton),
+                               for: .touchUpInside)
     }
     
     private func setUpVideo(){

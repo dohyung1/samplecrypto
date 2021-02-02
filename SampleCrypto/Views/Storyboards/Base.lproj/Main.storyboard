@@ -78,8 +78,8 @@
                             <outlet property="animation" destination="3n9-sm-bH1" id="Qq5-sA-dQE"/>
                         </connections>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jdU-ei-hlx">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="jdU-ei-hlx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -106,8 +106,8 @@
                             <outlet property="animation" destination="uj9-CS-Yt0" id="5kh-5R-A9l"/>
                         </connections>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZGp-54-XcW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ZGp-54-XcW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -134,8 +134,8 @@
                             <outlet property="animation" destination="zvR-Hn-IJK" id="YYB-zh-jqJ"/>
                         </connections>
                     </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bSo-4P-utb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="bSo-4P-utb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -163,7 +163,7 @@
             </objects>
             <point key="canvasLocation" x="-2417" y="1871"/>
         </scene>
-        <!--Explore View Controller-->
+        <!--Explore-->
         <scene sceneID="p24-vl-Hmo">
             <objects>
                 <viewController id="zL5-tb-DmI" customClass="ExploreViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,13 +173,13 @@
                         <viewLayoutGuide key="safeArea" id="uLj-lH-uv0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="370-4z-uxb"/>
+                    <navigationItem key="navigationItem" title="Explore" id="370-4z-uxb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUO-EF-Z4F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1581" y="1871"/>
         </scene>
-        <!--Notifications View Controller-->
+        <!--Notifications-->
         <scene sceneID="S95-Yx-7Jc">
             <objects>
                 <viewController id="WIO-Ov-8TW" customClass="NotificationsViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
@@ -189,23 +189,38 @@
                         <viewLayoutGuide key="safeArea" id="YKv-gF-cyW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NGo-bC-bZH"/>
+                    <navigationItem key="navigationItem" title="Notifications" id="NGo-bC-bZH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XT4-Tu-pwP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-717" y="1871"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="WFV-O0-vaK">
             <objects>
                 <viewController id="gOn-oE-OnL" customClass="ProfileViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nrl-hf-fcC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5qK-10-zQS">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="AH4-6m-C2H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AH4-6m-C2H" firstAttribute="bottom" secondItem="5qK-10-zQS" secondAttribute="bottom" id="0QE-Ew-ldU"/>
+                            <constraint firstItem="5qK-10-zQS" firstAttribute="top" secondItem="AH4-6m-C2H" secondAttribute="top" id="OTk-v7-FIR"/>
+                            <constraint firstItem="5qK-10-zQS" firstAttribute="leading" secondItem="AH4-6m-C2H" secondAttribute="leading" id="X7v-cw-TD3"/>
+                            <constraint firstItem="AH4-6m-C2H" firstAttribute="trailing" secondItem="5qK-10-zQS" secondAttribute="trailing" id="kIP-zq-zlf"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zUT-8u-1WU"/>
+                    <navigationItem key="navigationItem" title="Profile" id="zUT-8u-1WU"/>
+                    <connections>
+                        <outlet property="tableView" destination="5qK-10-zQS" id="cvC-9N-jTn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Pb-g4-QCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,7 +235,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="udE-2Y-s3D">
-                                <rect key="frame" x="40" y="702" width="334" height="120"/>
+                                <rect key="frame" x="40" y="772" width="334" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDH-Hu-fKO">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -228,23 +243,9 @@
                                             <constraint firstAttribute="height" constant="50" id="o2p-mC-dSK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="Sign Up"/>
-                                        <connections>
-                                            <segue destination="W5B-g6-gLe" kind="show" id="aXH-YX-5gV"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6W-EG-8Ab">
-                                        <rect key="frame" x="0.0" y="70" width="334" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="Login"/>
-                                        <connections>
-                                            <segue destination="nJk-0u-mtB" kind="show" id="mBW-Em-yJj"/>
-                                        </connections>
+                                        <state key="normal" title="Get Started!"/>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="i6W-EG-8Ab" firstAttribute="height" secondItem="XDH-Hu-fKO" secondAttribute="height" id="Ua0-Fz-zJg"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RQi-Ea-uyb"/>
@@ -257,7 +258,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Koe-fD-ZMm"/>
                     <connections>
-                        <outlet property="loginButton" destination="i6W-EG-8Ab" id="Ljy-xN-I1T"/>
                         <outlet property="signUpButton" destination="XDH-Hu-fKO" id="DcV-TL-oTS"/>
                     </connections>
                 </viewController>
@@ -268,7 +268,7 @@
         <!--Registration View Controller-->
         <scene sceneID="0dY-sx-5EW">
             <objects>
-                <viewController id="W5B-g6-gLe" customClass="RegistrationViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="register" id="W5B-g6-gLe" customClass="RegistrationViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="utn-U6-RqV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,7 +347,7 @@
         <!--Login View Controller-->
         <scene sceneID="AKc-Co-xny">
             <objects>
-                <viewController id="nJk-0u-mtB" customClass="LoginViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="nJk-0u-mtB" customClass="LoginViewController" customModule="SampleCrypto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q9n-ch-CHJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -408,23 +408,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0g-34-yZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3671.0144927536235" y="1487.9464285714284"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6b0-cp-WNt">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="dDe-BM-ozT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VmL-28-DNK">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ZOy-Up-tJI" kind="relationship" relationship="rootViewController" id="dxq-HY-Wn7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PFt-ng-JM6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1828.985507246377" y="1046.6517857142858"/>
         </scene>
     </scenes>
     <resources>
