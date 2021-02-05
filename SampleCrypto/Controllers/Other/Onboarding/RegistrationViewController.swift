@@ -8,6 +8,7 @@
 import FirebaseAuth
 import Firebase
 import UIKit
+import JGProgressHUD
 
 class RegistrationViewController: UIViewController {
 
@@ -18,6 +19,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
  
+    private let spinner = JGProgressHUD(style: .dark)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,10 +82,14 @@ class RegistrationViewController: UIViewController {
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            
+            spinner.show(in: view)
             DatabaseManager.shared.userExists(with: email) { [weak self]exists in
                 guard let strongSelf = self else{
                     return
+                }
+                
+                DispatchQueue.main.async {
+                    strongSelf.spinner.dismiss()
                 }
                 
                 guard !exists else{
@@ -96,10 +103,14 @@ class RegistrationViewController: UIViewController {
                         strongSelf.showError("Error creating user.")
                         return
                     }
+                    strongSelf.spinner.dismiss()
                     
-                    DatabaseManager.shared.insertUser(with: User(firstName: firstName,
-                                                                 lastName: lastName,
-                                                                 emailAddress: email))
+                    DatabaseManager.shared.insertUser(with: User(firstName: firstName,lastName: lastName, emailAddress: email),
+                                                      completion: {success in                    
+                                                        if success{
+                                                            //void
+                                                        }
+                                                      })
                     
                     strongSelf.navigationController?.dismiss(animated: true, completion: nil)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loginSuccess") , object: nil)

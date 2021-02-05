@@ -44,7 +44,8 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func didTapDM(){
-        
+        let vc = DMViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func didTapButton(){
