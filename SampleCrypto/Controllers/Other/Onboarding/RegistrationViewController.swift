@@ -113,8 +113,9 @@ class RegistrationViewController: UIViewController {
                                                       })
                     
                     strongSelf.navigationController?.dismiss(animated: true, completion: nil)
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loginSuccess") , object: nil)
-                    
+                    if !UserDefaults.standard.bool(forKey: "user_onboarded"){
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loginSuccess") , object: nil)
+                    }
                 }
             }
         }

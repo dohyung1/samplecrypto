@@ -44,6 +44,8 @@ class OnboardViewController: UIViewController {
     }
     
     @objc private func handleModalDismissed(){
+        //Set flag to indicate user has been onboarded already
+        UserDefaults.standard.set(true, forKey: "user_onboarded")
         self.navigationController?.dismiss(animated: true)
     }
 

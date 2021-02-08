@@ -5,10 +5,10 @@
 //  Created by Administrator on 1/31/21.
 //
 
-import UIKit
 import FBSDKLoginKit
 import FirebaseAuth
 import JGProgressHUD
+import UIKit
 
 
 class LoginViewController: UIViewController, LoginButtonDelegate{
@@ -28,7 +28,6 @@ class LoginViewController: UIViewController, LoginButtonDelegate{
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpElements()
     }
     
@@ -94,6 +93,9 @@ class LoginViewController: UIViewController, LoginButtonDelegate{
                     print ("Failed to get email and name from fb result")
                     return
             }
+            
+            //store user email
+            UserDefaults.standard.set(email, forKey: "email")
 
             DatabaseManager.shared.userExists(with: email) { exists in
                 if !exists{
@@ -185,14 +187,25 @@ class LoginViewController: UIViewController, LoginButtonDelegate{
             
             guard let result = authResult, error == nil else{
                 print("failed to log in user with email: \(email)")
+                let alert = UIAlertController(title: "Error",
+                                              message: "Failed to log in user with email: \(email)",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Try Again", style: .cancel, handler: nil))
+                strongSelf.present(alert, animated: true, completion: nil)
                 return
             }
             
             let user = result.user
+            
+            //store standard user email
+            UserDefaults.standard.set(email, forKey: "email")
+            
             print("Logged in \(user)")
             strongSelf.navigationController?.dismiss(animated: true)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loginSuccess") , object: nil)
             
+            if !UserDefaults.standard.bool(forKey: "user_onboarded"){
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loginSuccess") , object: nil)
+            }
         }
     }
 }

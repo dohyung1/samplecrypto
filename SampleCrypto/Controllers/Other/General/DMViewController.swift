@@ -51,8 +51,23 @@ class DMViewController: UIViewController{
     
     @objc private func didTapComposeButton(){
         let vc = NewConversationViewController()
+        vc.completion = { [weak self]result in
+            self?.createNewConversation(result: result)
+        }
         let nav = UINavigationController(rootViewController: vc)
         present(nav, animated: true)
+    }
+    
+    private func createNewConversation(result: [String:String]){
+        guard let name = result["name"],
+              let email = result["email"] else{
+            return
+        }
+        let vc = ChatViewController(with: email)
+        vc.title = name
+        vc.isNewConversation = true
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
@@ -79,7 +94,7 @@ extension DMViewController: UITableViewDelegate, UITableViewDataSource {
         //unhighlight
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let vc = ChatViewController()
+        let vc = ChatViewController(with: "asdsa@gmail.com")
         vc.title = "Jenny Smith"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)  

@@ -5,6 +5,7 @@
 //  Created by Administrator on 1/31/21.
 //
 
+import FBSDKLoginKit
 import FirebaseAuth
 import ShimmerSwift
 import UIKit
@@ -56,22 +57,40 @@ class HomeViewController: UIViewController {
         catch let signoutError as NSError{
             print(signoutError)
         }
+        //Log out facebook
+        FBSDKLoginKit.LoginManager().logOut()
+        
     }
     
     private func handleNotAuthenticated(){
         //Check Auth Status
         if Auth.auth().currentUser == nil{
             //Show Onboarding if first time
-            guard let onboardVC = storyboard?.instantiateViewController(identifier: "onboard") as? OnboardViewController else{
-                print("failed to get onboard from storyboard")
-                return
-            }
-            let nav = UINavigationController(rootViewController: onboardVC)
-            nav.modalPresentationStyle = .fullScreen
-            nav.modalTransitionStyle = .crossDissolve
-            present(nav, animated: true)
+            let didUserOnboard = UserDefaults.standard.bool(forKey: "user_onboarded")
             
-            //TODO: Show login if not first time
+            if didUserOnboard{
+                //TODO: Show login if not first time
+                guard let vc = storyboard?.instantiateViewController(identifier: "login") as? LoginViewController else{
+                    print("failed to get login from storyboard")
+                    return
+                }
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                nav.modalTransitionStyle = .crossDissolve
+                present(nav, animated: true)
+                
+            }
+            else{
+                //Show Onboarding if first time
+                guard let onboardVC = storyboard?.instantiateViewController(identifier: "onboard") as? OnboardViewController else{
+                    print("failed to get onboard from storyboard")
+                    return
+                }
+                let nav = UINavigationController(rootViewController: onboardVC)
+                nav.modalPresentationStyle = .fullScreen
+                nav.modalTransitionStyle = .crossDissolve
+                present(nav, animated: true)
+            }
         }
     }
 }
